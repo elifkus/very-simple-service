@@ -4,6 +4,7 @@ import (
     "net/http"
     "io/ioutil"
     "os"
+    "log"
 )
 
 
@@ -33,6 +34,9 @@ func generateRandomURL() string {
 
 func main() {
 	http.HandleFunc("/save", saveHandler)
-    http.ListenAndServe(":8080", nil)
+	
+    //http.ListenAndServe(":8080", nil)
+    log.Fatal(http.ListenAndServe(":8080", nil))
+
 }
 

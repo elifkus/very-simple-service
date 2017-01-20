@@ -24,7 +24,8 @@ if [ $(lsof -t -i :8080) ]; then
    kill -9 $(lsof -t -i :8080)
 fi
 
-BUILD_ID=dontKillMe nohup $PROJECT_DIR/gobin/webservice &>/dev/null &
+BUILD_ID=dontKillMe nohup $PROJECT_DIR/gobin/webservice > $PROJECT_DIR/log/webservice.log 2>&1&
+
 
 
 
