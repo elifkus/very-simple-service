@@ -10,8 +10,8 @@ cd $WORKSPACE/src/webservice
 /usr/local/go/bin/go get -d
 #build the packages, -x outputs the compiler command line
 /usr/local/go/bin/go build -x
-chmod +x server
-mv server $PROJECT_DIR/gobin
+chmod +x webservice
+mv webservice $PROJECT_DIR/gobin
 
 cd $PROJECT_DIR
 cp -rf $WORKSPACE/static/* ./static/.
