@@ -6,3 +6,5 @@ mkdir -p $PROJECT_DIR/static
 cd $PROJECT_DIR
 cp -rf $WORKSPACE/static/* ./static/.
 
+chown nginx.nginx static/*
+
