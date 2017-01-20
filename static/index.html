@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Paste your text</title>
+</head>
+<body>
+  <style>
+  	#content {
+  		margin: 30px 30px 30px 30px;
+  		height: 300px;
+  	}
+  	.form {
+  		margin: 20px 20px 20px 20px;
+  		height: 100%;
+  	}
+  	.formitem {
+  		width: 100%;
+		height: 90%;
+  	}
+  	.formsavebutton {
+  		float:right;
+  	}
+  </style>
+  <div id="content">
+  	<p>Please paste your text below:</p>
+  	<form class="form" action="/save"> 
+	  <textarea class="formitem" name="text" ></textarea>
+	  <input class="formsavebutton" type="submit" value="Submit" />
+	</form> 
+  </div>
+</body>
+</html>
