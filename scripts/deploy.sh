@@ -1,9 +1,10 @@
-PROJECT_DIR=/PRODUCTION/EXPERIMENT/web
+PROJECT_DIR=/PRODUCTION/EXPERIMENT
+WEB_DIR=PROJECT_DIR/web
 GOPATH=$WORKSPACE
 
-mkdir -p $PROJECT_DIR/static
-mkdir -p $PROJECT_DIR/savedfiles
-mkdir -p $PROJECT_DIR/gobin
+mkdir -p $WEB_DIR/static
+mkdir -p $WEB_DIR/savedfiles
+mkdir -p $WEB_DIR/gobin
 
 cd $WORKSPACE/src/webservice
 #this gets the dependencies but doesn't install them, avoiding permission problems
@@ -11,11 +12,11 @@ cd $WORKSPACE/src/webservice
 #build the packages, -x outputs the compiler command line
 /usr/local/go/bin/go build -x
 chmod +x webservice
-mv webservice $PROJECT_DIR/gobin
+mv webservice $WEB_DIR/gobin
 
-cd $PROJECT_DIR
+cd $WEB_DIR
 cp -rf $WORKSPACE/static/* ./static/.
-ln -s $PROJECT_DIR/static/index.html $PROJECT_DIR/savedfiles/index.html
+ln -s $WEB_DIR/static/index.html $WEB/savedfiles/index.html
 
 chown -R nginx.nginx static
 
@@ -24,7 +25,7 @@ if [ $(lsof -t -i :8080) ]; then
    kill -9 $(lsof -t -i :8080)
 fi
 
-BUILD_ID=dontKillMe nohup $PROJECT_DIR/gobin/webservice > $PROJECT_DIR/log/webservice.log 2>&1&
+BUILD_ID=dontKillMe nohup $WEB_DIR/gobin/webservice > $PROJECT_DIR/log/webservice.log 2>&1&
 
 
 
