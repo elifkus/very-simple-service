@@ -28,7 +28,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	ioutil.WriteFile(path, []byte(text), 0400)
 	os.Chown(path, 995, 994)
 	
-	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusSeeOther)
 }
 
 func generateRandomURL() string {
