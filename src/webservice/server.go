@@ -36,7 +36,7 @@ func main() {
 	http.HandleFunc("/save", saveHandler)
 	
     //http.ListenAndServe(":8080", nil)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+    http.ListenAndServe(":8080", Logger(http.DefaultServeMux))
 
 }
 
