@@ -17,7 +17,10 @@ mv webservice $WEB_DIR/gobin
 
 cd $WEB_DIR
 cp -rf $WORKSPACE/static/* ./static/.
-ln -s $WEB_DIR/static/index.html $WEB_DIR/savedfiles/index.html
+
+if [ ! -f $WEB_DIR/savedfiles/index.html ]; then
+    ln -s $WEB_DIR/static/index.html $WEB_DIR/savedfiles/index.html
+fi
 
 chown -R nginx.nginx static
 
