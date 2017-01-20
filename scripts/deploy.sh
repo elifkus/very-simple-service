@@ -2,6 +2,7 @@ PROJECT_DIR=/PRODUCTION/EXPERIMENT
 WEB_DIR=PROJECT_DIR/web
 GOPATH=$WORKSPACE
 
+mkdir -p $PROJECT_DIR/log
 mkdir -p $WEB_DIR/static
 mkdir -p $WEB_DIR/savedfiles
 mkdir -p $WEB_DIR/gobin
