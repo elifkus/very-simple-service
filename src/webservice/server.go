@@ -23,7 +23,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
     text := r.Form.Get("text")
 	ioutil.WriteFile(path, []byte(text), 0400)
 	
-	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusCreated)
+	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusTemporaryRedirect)
 }
 
 func generateRandomURL() string {
