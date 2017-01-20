@@ -22,7 +22,7 @@ if [ $(lsof -t -i :8080) ]; then
    kill -9 $(lsof -t -i :8080)
 fi
 
-BUILD_ID=dontKillMe nohup ./server &>/dev/null &
+BUILD_ID=dontKillMe nohup ./webservice &>/dev/null &
 
 
 
