@@ -18,7 +18,8 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	    }
     }
     
-    text := r.FormValue("text")
+    r.ParseForm() 
+    text := r.Form.Get("text")
 	ioutil.WriteFile(path, []byte(text), 0400)
 	
 	http.Redirect(w, r, "/"+filename, http.StatusCreated)
