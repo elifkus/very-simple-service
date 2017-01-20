@@ -8,7 +8,7 @@ import (
 
 
 func saveHandler(w http.ResponseWriter, r *http.Request) {
-	folder := "/PRODUCTION/EXPERIMENT/savedfiles/"
+	folder := "/PRODUCTION/EXPERIMENT/web/savedfiles/"
     filename := generateRandomURL()
     path := folder + filename
     
