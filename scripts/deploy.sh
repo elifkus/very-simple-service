@@ -15,6 +15,8 @@ mv webservice $PROJECT_DIR/gobin
 
 cd $PROJECT_DIR
 cp -rf $WORKSPACE/static/* ./static/.
+ln -s ./static/index.html ./savedfiles/index.html
+
 chown -R nginx.nginx static
 
 
