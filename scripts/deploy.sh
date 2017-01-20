@@ -19,7 +19,7 @@ ln -s $PROJECT_DIR/static/index.html $PROJECT_DIR/savedfiles/index.html
 
 chown -R nginx.nginx static
 
-
+#use very-simple-service.sh start stop script instead
 if [ $(lsof -t -i :8080) ]; then
    kill -9 $(lsof -t -i :8080)
 fi
