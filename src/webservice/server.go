@@ -22,6 +22,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
     r.ParseForm() 
     text := r.Form.Get("text")
 	ioutil.WriteFile(path, []byte(text), 0400)
+	os.Chown(path, 995, 994)
 	
 	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusTemporaryRedirect)
 }
