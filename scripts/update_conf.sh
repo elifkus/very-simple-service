@@ -1,6 +1,6 @@
 NGINX_CONF_DIR=/etc/nginx/conf.d
 
 cd $WORKSPACE
-cp -rf $WORKSPACE/conf/experiment.conf $NGINX_CONF/.
+cp -rf $WORKSPACE/conf/experiment.conf $NGINX_CONF_DIR/.
 
 /usr/sbin/service nginx reload
