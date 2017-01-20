@@ -15,9 +15,11 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
     
     if _, err := os.Stat(path); err != nil {
 	    if os.IsNotExist(err) {
+	    	log.Fatal("ListenAndServe: ", err)
 		    http.Error(w, err.Error(), http.StatusInternalServerError)
 		    return
 	    }
+	    log.Fatal("ListenAndServe: ", err)
     }
     
     r.ParseForm() 
@@ -36,7 +38,10 @@ func main() {
 	http.HandleFunc("/save", saveHandler)
 	
     //http.ListenAndServe(":8080", nil)
-    http.ListenAndServe(":8080", Logger(http.DefaultServeMux))
+    err := http.ListenAndServe(":8080", nil)
 
+    if err != nil {
+        log.Fatal("ListenAndServe: ", err)
+    }
 }
 
