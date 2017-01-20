@@ -1,5 +1,5 @@
 PROJECT_DIR=/PRODUCTION/EXPERIMENT
-WEB_DIR=PROJECT_DIR/web
+WEB_DIR=$PROJECT_DIR/web
 GOPATH=$WORKSPACE
 
 mkdir -p $PROJECT_DIR/log
@@ -17,7 +17,7 @@ mv webservice $WEB_DIR/gobin
 
 cd $WEB_DIR
 cp -rf $WORKSPACE/static/* ./static/.
-ln -s $WEB_DIR/static/index.html $WEB/savedfiles/index.html
+ln -s $WEB_DIR/static/index.html $WEB_DIR/savedfiles/index.html
 
 chown -R nginx.nginx static
 
