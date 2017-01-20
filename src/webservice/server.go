@@ -14,7 +14,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
     path := folder + filename
     
     if _, err := os.Stat(path); err != nil {
-	    if os.IsNotExist(err) {
+	    if !(os.IsNotExist(err)) {
 	    	log.Fatal("ListenAndServe: ", err)
 		    http.Error(w, err.Error(), http.StatusInternalServerError)
 		    return
@@ -41,7 +41,7 @@ func main() {
     err := http.ListenAndServe(":8080", nil)
 
     if err != nil {
-        log.Fatal("ListenAndServe: ", err)
+        log.Fatal("Main: ", err)
     }
 }
 
