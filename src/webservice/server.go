@@ -30,12 +30,26 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	
 	http.Redirect(w, r, "http://experiment.safkanyazilim.com/"+filename, http.StatusSeeOther)
 }
-
-func generateRandomURL() string {
-	return "1234556"
+func initRandom() {
+	rand.Seed(time.Now().UnixNano())
 }
 
+const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+func generateRandomURL() string {
+    b := make([]byte, 8)
+    
+    for i := range b {
+        b[i] = letterBytes[rand.Intn(len(letterBytes))]
+    }
+    
+    return string(b)
+}
+
+
 func main() {
+	initRandom()
+	
 	http.HandleFunc("/save", saveHandler)
 	
     //http.ListenAndServe(":8080", nil)
