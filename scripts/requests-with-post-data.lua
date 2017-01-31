@@ -56,5 +56,10 @@ request = function()
   end
 
   -- Return the request object with the current URL path
-  return wrk.format("POST", "/save", "{\"Content-Type\":\"application/x-www-form-urlencoded\"}", "text=" .. single_post_data)
+  wrk.method = "POST"
+  wrk.path = "/save"
+  wrk.body = "text=" .. single_post_data
+  wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"
+  
+  return wrk
 end
