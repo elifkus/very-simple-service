@@ -1,3 +1,5 @@
+#!/bin/bash -ex
+
 NGINX_CONF_DIR=/etc/nginx/conf.d
 
 cd $WORKSPACE
