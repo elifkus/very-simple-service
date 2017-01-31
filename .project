@@ -15,5 +15,10 @@
 	<natures>
 		<nature>com.googlecode.goclipse.core.goNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>GITLFS_PATH</name>
+			<value>folder:/opt/local/bin/</value>
+		</variable>
+	</variableList>
 </projectDescription>
-
