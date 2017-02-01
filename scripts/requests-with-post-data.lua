@@ -30,7 +30,7 @@ end
 
 -- load post data from file
 --requests = load_request_objects_from_file("/data/requests.json")
-post_data = load_post_data_from_file("../data/postdata.json")
+post_data = load_post_data_from_file("data/postdata.json")
 
 -- Check if at least one path was found in the file
 if #post_data <= 0 then
