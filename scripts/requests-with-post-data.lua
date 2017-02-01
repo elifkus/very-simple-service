@@ -43,6 +43,9 @@ print("multiplerequests: Found " .. #post_data .. " requests")
 -- Initialize the requests array iterator
 counter = 1
 
+wrk.method = "POST"
+wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"
+
 request = function()
   -- Get the next requests array element
   local single_post_data = post_data[counter]
@@ -54,11 +57,8 @@ request = function()
   if counter > #single_post_data then
     counter = 1
   end
-  print("Post datum is " .. url.escape(single_post_data))
   -- Return the request object with the current URL path
-  wrk.method = "POST"
   wrk.body = "text=" .. url.escape(single_post_data)
-  wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"
 
   return wrk.format(nil, "/save")
 end
