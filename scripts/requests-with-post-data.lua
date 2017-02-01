@@ -41,7 +41,7 @@ end
 print("multiplerequests: Found " .. #post_data .. " requests")
 
 -- Initialize the requests array iterator
-counter = 0
+counter = 1
 
 request = function()
   -- Get the next requests array element
@@ -59,6 +59,6 @@ request = function()
   wrk.method = "POST"
   wrk.body = "text=" .. url.escape(single_post_data)
   wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"
-  
+
   return wrk.format(nil, "/save")
 end
