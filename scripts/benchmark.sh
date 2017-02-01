@@ -3,7 +3,7 @@ PROJECT_DIR=/PRODUCTION/EXPERIMENT/benchmark
 
 cd $WORKSPACE
 
-mk -p $PROJECT_DIR
+mkdir -p $PROJECT_DIR
 cp -rf scripts $PROJECT_DIR/.
 cp -rf data $PROJECT_DIR/.
 
