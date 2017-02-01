@@ -4,6 +4,7 @@ local cjson = require "cjson"
 local cjson2 = cjson.new()
 local cjson_safe = require "cjson.safe"
 
+local url = require "socket.url"
 
 -- Load URL paths from the file
 function load_post_data_from_file(file)
@@ -53,11 +54,11 @@ request = function()
   if counter > #single_post_data then
     counter = 1
   end
-  print("Post datum is " .. single_post_data)
+  --print("Post datum is " .. single_post_data)
   -- Return the request object with the current URL path
   wrk.method = "POST"
   wrk.path = "/save"
-  wrk.body = "text=" .. single_post_data
+  wrk.body = "text=" .. url.escape(single_post_data)
   wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"
   
   return wrk
