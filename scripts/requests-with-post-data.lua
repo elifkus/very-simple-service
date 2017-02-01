@@ -15,7 +15,6 @@ function load_post_data_from_file(file)
   local f=io.open(file,"r")
   if f~=nil then
     content = f:read("*all")
-
     io.close(f)
   else
     -- Return the empty array
@@ -54,7 +53,7 @@ request = function()
   if counter > #single_post_data then
     counter = 1
   end
-
+  print("Post datum is " .. single_post_data)
   -- Return the request object with the current URL path
   wrk.method = "POST"
   wrk.path = "/save"
