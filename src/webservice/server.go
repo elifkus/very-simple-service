@@ -26,7 +26,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
     
     r.ParseForm() 
     text := r.Form.Get("text")
-    text = "<html><body>" + text + "</html></body>"
+    text = "<html><body>" + text + "</body></html>"
 	ioutil.WriteFile(path, []byte(text), 0400)
 	os.Chown(path, 995, 994)
 	
