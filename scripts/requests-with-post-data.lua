@@ -54,7 +54,7 @@ request = function()
   if counter > #single_post_data then
     counter = 1
   end
-  --print("Post datum is " .. single_post_data)
+  print("Post datum is " .. url.escape(single_post_data))
   -- Return the request object with the current URL path
   wrk.method = "POST"
   wrk.path = "/save"
